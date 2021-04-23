@@ -40,6 +40,8 @@ public class Main {
 			String horaSaida = leitor.nextLine();
 			Hour horaSaidaObject = dateConverter.converteData(horaSaida);
 			
+			//criar método de cálculo de hora passando todos os objetos + o dia em que foi executado
+			
 		}
 		
 		leitor.close();
