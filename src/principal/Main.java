@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
+import markers.Hour;
+import utils.DateConverter;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -19,23 +22,23 @@ public class Main {
 		int opcaoMenu = leitor.nextInt();
 		
 		if(opcaoMenu == 1) {
-			DateConverter date = new DateConverter();
+			DateConverter dateConverter = new DateConverter();
 			
 			System.out.println("Digite o horário de entrada:");
 			String horaEntrada = leitor.nextLine();
-			Date horaEntradaObject = date.converteData(horaEntrada);
+			Hour horaEntradaObject = dateConverter.converteData(horaEntrada);
 			
 			System.out.println("Digite o horário de entrada no almoço:");
 			String horaSaidaAlmoco = leitor.nextLine();
-			Date horaSaidaAlmocoObject = date.converteData(horaSaidaAlmoco);
+			Hour horaSaidaAlmocoObject = dateConverter.converteData(horaSaidaAlmoco);
 			
 			System.out.println("Digite o horário de volta do almoço:");
 			String horaVoltaAlmoco = leitor.nextLine();
-			Date horaVoltaAlmocoObject = date.converteData(horaVoltaAlmoco);
+			Hour horaVoltaAlmocoObject = dateConverter.converteData(horaVoltaAlmoco);
 			
 			System.out.println("Digite o horário de saída:");
 			String horaSaida = leitor.nextLine();
-			Date horaSaidaObject = date.converteData(horaSaida);
+			Hour horaSaidaObject = dateConverter.converteData(horaSaida);
 			
 		}
 		
