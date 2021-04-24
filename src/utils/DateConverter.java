@@ -3,6 +3,10 @@ package utils;
 import markers.Hour;
 
 public class DateConverter {
+	
+	public DateConverter(){
+		
+	}
 
 	public Hour converteData(String data) {
 		Hour momento = new Hour();
