@@ -40,7 +40,11 @@ public class Main {
 				String horaVoltaAlmoco = leitor.next();
 				Hour horaVoltaAlmocoObject = dateConverter.converteData(horaVoltaAlmoco);
 				
-				workCalculator.calculaHoraSaida(horaEntradaObject, horaSaidaAlmocoObject, horaVoltaAlmocoObject);
+				Hour horaDeSaida = workCalculator.calculaHoraSaida(horaEntradaObject, horaSaidaAlmocoObject, horaVoltaAlmocoObject);
+				
+				System.out.println("-------------------------------------------------------------------------------");
+				System.out.println("Você deverá sair as: " + horaDeSaida.getHoras() + ":" + horaDeSaida.getMinutos());
+				System.out.println("-------------------------------------------------------------------------------");
 			}
 			
 			if(opcaoMenu == 2) {
