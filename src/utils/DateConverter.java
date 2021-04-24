@@ -18,4 +18,14 @@ public class DateConverter {
 		
 		return momento;
 	}
+	
+	public Hour converteFormatoData(Hour horaDeSaida) {
+		int horas = horaDeSaida.getHoras();
+		
+		if(horas < 12) {
+			horaDeSaida.setHoras(horas + 12);
+		}
+		
+		return horaDeSaida;
+	}
 }

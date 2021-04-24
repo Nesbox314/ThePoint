@@ -14,6 +14,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner leitor = new Scanner(System.in);
 		WorkCalculator workCalculator = new WorkCalculator();
+		DateConverter dateConverter = new DateConverter();
 		Boolean exit = true;
 		
 		while(exit) {
@@ -26,8 +27,6 @@ public class Main {
 			int opcaoMenu = leitor.nextInt();
 			
 			if(opcaoMenu == 1) {
-				DateConverter dateConverter = new DateConverter();
-				
 				System.out.println("Digite o horário de entrada:");
 				String horaEntrada = leitor.next();
 				Hour horaEntradaObject = dateConverter.converteData(horaEntrada);
@@ -41,6 +40,7 @@ public class Main {
 				Hour horaVoltaAlmocoObject = dateConverter.converteData(horaVoltaAlmoco);
 				
 				Hour horaDeSaida = workCalculator.calculaHoraSaida(horaEntradaObject, horaSaidaAlmocoObject, horaVoltaAlmocoObject);
+				horaDeSaida = dateConverter.converteFormatoData(horaDeSaida);
 				
 				System.out.println("-------------------------------------------------------------------------------");
 				System.out.println("Você deverá sair as: " + horaDeSaida.getHoras() + ":" + horaDeSaida.getMinutos());
@@ -58,7 +58,6 @@ public class Main {
 			if(opcaoMenu == 0) {
 				exit = false;
 			}
-			
 		}
 		
 		leitor.close();
