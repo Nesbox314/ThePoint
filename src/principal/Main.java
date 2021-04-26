@@ -40,7 +40,7 @@ public class Main {
 				horaDeSaida = dateConverter.converteFormatoData(horaDeSaida);
 				
 				System.out.println("-------------------------------------------------------------------------------");
-				System.out.println("Você deverá sair as: " + horaDeSaida.getHoras() + ":" + horaDeSaida.getMinutos());
+				System.out.println("Você deverá sair as: " + dateConverter.dateFormatter(horaDeSaida)); 
 				System.out.println("-------------------------------------------------------------------------------");
 			}
 			
