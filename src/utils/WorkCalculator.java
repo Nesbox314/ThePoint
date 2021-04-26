@@ -15,11 +15,8 @@ public class WorkCalculator {
 		Hour saldoHorarioSaida = new Hour();
 		saldoHorarioSaida = subtraiHora(saldoManha, cargaTrabalho);
 		
-		Hour saldoHorarioAlmoco = new Hour();
-		saldoHorarioAlmoco = subtraiHora(horaSaidaAlmoco, horaVoltaAlmoco);
-		
 		Hour horarioDeSaida = new Hour();
-		horarioDeSaida = adicionaHora(saldoHorarioSaida, saldoHorarioAlmoco);
+		horarioDeSaida = adicionaHora(saldoHorarioSaida, horaVoltaAlmoco);
 		
 		return horarioDeSaida;
 	}
