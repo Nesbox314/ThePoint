@@ -21,6 +21,12 @@ public class WorkCalculator {
 		return horarioDeSaida;
 	}
 	
+	public Hour calculaHoraExtra(Hour horaEntrada, Hour horaSaidaAlmoco, Hour horaVoltaAlmoco, Hour horaSaida) {
+		Hour horaExtra = new Hour();
+		
+		return horaExtra;
+	}
+	
 	public Hour subtraiHora(Hour horaInicial, Hour horaFinal) {
 		Hour horarioSubtraido = new Hour();
 		

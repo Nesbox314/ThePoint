@@ -46,7 +46,23 @@ public class Main {
 			}
 			
 			if(opcaoMenu == 2) {
-				System.out.println("Função em desenvolvimento!");
+				System.out.println("Digite o horário de entrada:");
+				String horaEntrada = leitor.next();
+				Hour horaEntradaObject = dateConverter.converteData(horaEntrada);
+				
+				System.out.println("Digite o horário de entrada no almoço:");
+				String horaSaidaAlmoco = leitor.next();
+				Hour horaSaidaAlmocoObject = dateConverter.converteData(horaSaidaAlmoco);
+				
+				System.out.println("Digite o horário de volta do almoço:");
+				String horaVoltaAlmoco = leitor.next();
+				Hour horaVoltaAlmocoObject = dateConverter.converteData(horaVoltaAlmoco);
+				
+				System.out.println("Digite o horário de saída:");
+				String horaSaida = leitor.next();
+				Hour horaSaidaObject = dateConverter.converteData(horaSaida);
+				
+				workCalculator.calculaHoraExtra(horaEntradaObject, horaSaidaAlmocoObject, horaVoltaAlmocoObject, horaSaidaObject);
 			}
 			
 			if(opcaoMenu == 3) {
