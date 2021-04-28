@@ -1,9 +1,18 @@
 package markers;
 
 public class Hour {
-
+	
 	private int horas;
 	private int minutos;
+	
+	public Hour(){
+		
+	}
+
+	public Hour(int horas, int minutos){
+		setHoras(horas);
+		setMinutos(minutos);
+	}
 	
 	public int getHoras() {
 		return horas;

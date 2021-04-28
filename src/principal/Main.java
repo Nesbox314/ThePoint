@@ -14,8 +14,10 @@ public class Main {
 		DateConverter dateConverter = new DateConverter();
 		Boolean exit = true;
 		
+		System.out.println("Bem vindo ao sistema de registro de ponto!");
+		
 		while(exit) {
-			System.out.println("Bem vindo ao sistema de registro de ponto!");
+			System.out.println("----------------------------------------------------------------------");
 			System.out.println("O que deseja? Digite a opção escolhida");
 			System.out.println("1- Calcular horário de saída");
 			System.out.println("2- Calcular tempo de hora extra (EM DESENVOLVIMENTO)");
@@ -29,11 +31,11 @@ public class Main {
 				String horaEntrada = leitor.next();
 				Hour horaEntradaObject = dateConverter.converteData(horaEntrada);
 				
-				System.out.println("Digite o horário de entrada no almoço:");
+				System.out.println("Digite o horário de ida ao almoço:");
 				String horaSaidaAlmoco = leitor.next();
 				Hour horaSaidaAlmocoObject = dateConverter.converteData(horaSaidaAlmoco);
 				
-				System.out.println("Digite o horário de volta do almoço:");
+				System.out.println("Digite o horário do retorno do almoço:");
 				String horaVoltaAlmoco = leitor.next();
 				Hour horaVoltaAlmocoObject = dateConverter.converteData(horaVoltaAlmoco);
 				
@@ -50,11 +52,11 @@ public class Main {
 				String horaEntrada = leitor.next();
 				Hour horaEntradaObject = dateConverter.converteData(horaEntrada);
 				
-				System.out.println("Digite o horário de entrada no almoço:");
+				System.out.println("Digite o horário de ida ao almoço:");
 				String horaSaidaAlmoco = leitor.next();
 				Hour horaSaidaAlmocoObject = dateConverter.converteData(horaSaidaAlmoco);
 				
-				System.out.println("Digite o horário de volta do almoço:");
+				System.out.println("Digite o horário do retorno do almoço:");
 				String horaVoltaAlmoco = leitor.next();
 				Hour horaVoltaAlmocoObject = dateConverter.converteData(horaVoltaAlmoco);
 				

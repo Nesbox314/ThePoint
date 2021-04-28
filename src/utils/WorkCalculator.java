@@ -4,11 +4,14 @@ import markers.Hour;
 
 public class WorkCalculator {
 	
+	DateConverter dateConverter = new DateConverter();
+	private Hour cargaTrabalho;
+	
+	public WorkCalculator(){
+		setCargaTrabalho(new Hour(8, 45));
+	}
+	
 	public Hour calculaHoraSaida(Hour horaEntrada, Hour horaSaidaAlmoco, Hour horaVoltaAlmoco) {
-		Hour cargaTrabalho = new Hour();
-		cargaTrabalho.setHoras(8);
-		cargaTrabalho.setMinutos(45);
-		
 		Hour saldoManha = new Hour();
 		saldoManha = subtraiHora(horaEntrada, horaSaidaAlmoco);
 		
@@ -21,10 +24,18 @@ public class WorkCalculator {
 		return horarioDeSaida;
 	}
 	
-	public Hour calculaHoraExtra(Hour horaEntrada, Hour horaSaidaAlmoco, Hour horaVoltaAlmoco, Hour horaSaida) {
-		Hour horaExtra = new Hour();
+	public void calculaHoraExtra(Hour horaEntrada, Hour horaSaidaAlmoco, Hour horaVoltaAlmoco, Hour horaSaida) {
 		
-		return horaExtra;
+		Hour saldoManha = new Hour();
+		saldoManha = subtraiHora(horaEntrada, horaSaidaAlmoco);
+		
+		Hour saldoTarde = new Hour();
+		saldoTarde = subtraiHora(horaVoltaAlmoco, horaSaida);
+		
+		Hour tempoTrabalhado = new Hour();
+		tempoTrabalhado = adicionaHora(saldoManha, saldoTarde);
+
+		subtraiHoraExtra(cargaTrabalho, tempoTrabalhado, horaSaida);
 	}
 	
 	public Hour subtraiHora(Hour horaInicial, Hour horaFinal) {
@@ -51,6 +62,24 @@ public class WorkCalculator {
 		return horarioSubtraido;
 	}
 	
+	public void subtraiHoraExtra(Hour horaInicial, Hour horaFinal, Hour horaSaida) {
+		Boolean fezHoraExtra = identificadorDeHoraExtra(horaInicial, horaFinal);
+		Hour quantidade = new Hour();
+		
+		if(fezHoraExtra == true) {
+			quantidade = subtraiHora(horaInicial, horaFinal);
+			System.out.println("Você fez horas positivas!");
+		}
+		
+		if(fezHoraExtra == false) {
+			//quantidade = subtraiHora(horaInicial, horaFinal);
+			System.out.println("Você fez horas negativas!");
+		}
+		
+		System.out.println("Início das horas extras: " + dateConverter.dateFormatter(dateConverter.converteFormatoData(horaSaida)));
+		System.out.println("Você fez um total de: " + quantidade.getHoras() + "h" + quantidade.getMinutos() + "m");
+	}
+	
 	public Hour adicionaHora(Hour horaInicial, Hour horaFinal) {
 		Hour horarioSomado = new Hour();
 		
@@ -73,5 +102,23 @@ public class WorkCalculator {
 		horarioSomado.setHoras(saldoHoras);
 		
 		return horarioSomado;
+	}
+	
+	public Boolean identificadorDeHoraExtra(Hour horaInicial, Hour horaFinal) {
+		Hour horaExtraIdentify = subtraiHora(horaInicial, horaFinal);
+		
+		if(horaExtraIdentify.getHoras() < 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public Hour getCargaTrabalho() {
+		return cargaTrabalho;
+	}
+
+	public void setCargaTrabalho(Hour cargaTrabalho) {
+		this.cargaTrabalho = cargaTrabalho;
 	}
 }
