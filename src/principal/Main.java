@@ -20,7 +20,7 @@ public class Main {
 			System.out.println("----------------------------------------------------------------------");
 			System.out.println("O que deseja? Digite a opção escolhida");
 			System.out.println("1- Calcular horário de saída");
-			System.out.println("2- Calcular tempo de hora extra (EM DESENVOLVIMENTO)");
+			System.out.println("2- Calcular total de horas extras");
 			System.out.println("3- Registrar batida de ponto (hoje) (EM DESENVOLVIMENTO)");
 			System.out.println("4- Adicionar / editar batida de ponto anterior (EM DESENVOLVIMENTO)");
 			System.out.println("0- Sair");
