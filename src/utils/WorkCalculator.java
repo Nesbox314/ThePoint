@@ -69,15 +69,16 @@ public class WorkCalculator {
 		if(fezHoraExtra == true) {
 			quantidade = subtraiHora(horaInicial, horaFinal);
 			System.out.println("Você fez horas positivas!");
+			System.out.println("Início: " + dateConverter.dateFormatter(dateConverter.converteFormatoData(horaSaida)));
+			System.out.println("Total: " + quantidade.getHoras() + "h" + quantidade.getMinutos() + "m");
 		}
 		
 		if(fezHoraExtra == false) {
-			//quantidade = subtraiHora(horaInicial, horaFinal);
+			quantidade = subtraiHora(horaFinal, horaInicial);
 			System.out.println("Você fez horas negativas!");
+			System.out.println("Início: " + dateConverter.dateFormatter(dateConverter.converteFormatoData(horaSaida)));
+			System.out.println("Total: -" + quantidade.getHoras() + "h" + quantidade.getMinutos() + "m");
 		}
-		
-		System.out.println("Início das horas extras: " + dateConverter.dateFormatter(dateConverter.converteFormatoData(horaSaida)));
-		System.out.println("Você fez um total de: " + quantidade.getHoras() + "h" + quantidade.getMinutos() + "m");
 	}
 	
 	public Hour adicionaHora(Hour horaInicial, Hour horaFinal) {
@@ -107,11 +108,19 @@ public class WorkCalculator {
 	public Boolean identificadorDeHoraExtra(Hour horaInicial, Hour horaFinal) {
 		Hour horaExtraIdentify = subtraiHora(horaInicial, horaFinal);
 		
-		if(horaExtraIdentify.getHoras() < 0) {
-			return false;
+		if(horaExtraIdentify.getHoras() == 0 ) {
+			if(horaExtraIdentify.getMinutos() > 0) {
+				return true;
+			}
+			 return false;
+		}
+		
+		if(horaExtraIdentify.getHoras() < 0 ) {
+			 return false;
 		} else {
 			return true;
 		}
+		
 	}
 
 	public Hour getCargaTrabalho() {
