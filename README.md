@@ -4,4 +4,6 @@ Sistema criado para registro de ponto, cálculos de horário e funções úteis 
 
 -Cálculo do horário de saída
 
-Download link: https://github.com/Nesbox314/ThePoint/releases/download/v0.1-beta.2/ThePoint.7z
+-Cálculo de tempo total de horas extras
+
+Download link: https://github.com/Nesbox314/ThePoint/releases/download/v0.2-beta.1/ThePoint.rar
