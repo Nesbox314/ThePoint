@@ -11,6 +11,10 @@ public class FileWorker {
 	
 	Scanner leitor = new Scanner(System.in);
 	
+	public configuraArquivo() {
+		
+	}
+	
 	public FileReader criaArquivo() {
     	File file = new File("registros.txt");
     	try {
