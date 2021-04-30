@@ -1,9 +1,12 @@
 package principal;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 import markers.Hour;
 import utils.DateConverter;
+import utils.FileWorker;
 import utils.WorkCalculator;
 
 public class Main {
@@ -12,6 +15,7 @@ public class Main {
 		Scanner leitor = new Scanner(System.in);
 		WorkCalculator workCalculator = new WorkCalculator();
 		DateConverter dateConverter = new DateConverter();
+		FileWorker fileWorker = new FileWorker();
 		Boolean exit = true;
 		
 		System.out.println("Bem vindo ao sistema de registro de ponto!");
@@ -23,6 +27,7 @@ public class Main {
 			System.out.println("2- Calcular total de horas extras");
 			System.out.println("3- Registrar batida de ponto (hoje) (EM DESENVOLVIMENTO)");
 			System.out.println("4- Adicionar / editar batida de ponto anterior (EM DESENVOLVIMENTO)");
+			System.out.println("5- Configurações (EM DESENVOLVIMENTO)");
 			System.out.println("0- Sair");
 			int opcaoMenu = leitor.nextInt();
 			
@@ -68,8 +73,14 @@ public class Main {
 			}
 			
 			if(opcaoMenu == 3) {
-				System.out.println("Função em desenvolvimento!");
-			}
+				System.out.println("Em desenvolvimento!");
+		    }
+			
+			if(opcaoMenu == 5) {
+				FileReader reader = fileWorker.procuraArquivo();
+				
+		    }
+			
 			
 			if(opcaoMenu == 0) {
 				exit = false;
