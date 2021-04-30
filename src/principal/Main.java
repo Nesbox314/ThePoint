@@ -1,5 +1,6 @@
 package principal;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -77,7 +78,15 @@ public class Main {
 		    }
 			
 			if(opcaoMenu == 5) {
-				FileReader reader = fileWorker.procuraArquivo();
+				File file = null;
+				Boolean existe = fileWorker.verificaExistenciaArquivo();
+				
+				if(existe) {
+					file = new File("registros");
+				} else {
+					file = fileWorker.criaArquivo();
+					//colocar mensagens avisando da não existência de arquivo
+				}
 				
 		    }
 			

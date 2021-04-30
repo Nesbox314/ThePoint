@@ -1,55 +1,28 @@
 package utils;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class FileWorker {
 	
-	Scanner leitor = new Scanner(System.in);
-	
-	public configuraArquivo() {
+	public Boolean verificaExistenciaArquivo() {
+		File file = new File("registros");
 		
+		return file.exists();
 	}
 	
-	public FileReader criaArquivo() {
-    	File file = new File("registros.txt");
-    	try {
-			file.createNewFile();
-			FileReader reader = new FileReader("registros.txt");
-			return reader;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
-	public FileReader procuraArquivo() {
+	public File criaArquivo() {
+		File file = new File("registros");
+		
 		try {
-	        FileReader reader = new FileReader("registros.txt");
-	        
-	        return reader;
-	    } catch (IOException e) {
-	    	
-	        if(e.getClass().getName().indexOf("FileNotFoundException") > -1) {
-	        	System.out.println("Você não tem um arquivo de registros/configurações criado...");
-	        	System.out.println("Deseja criar? Você será redirecionado para a configuração de um novo arquivo.");
-	        	System.out.println("1 para SIM / 2 para NÃO");
-	        	int opcaoConfig = leitor.nextInt();
-	        	if(opcaoConfig == 1) {
-	        		return criaArquivo();
-	        	} else {
-	        		return null;
-	        	}
-	        }
-	        
-	    }
+			file.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		leitor.close();
-		return null;
+		return file;
 	}
+	
+	
 	
 }
