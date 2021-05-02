@@ -1,7 +1,11 @@
 package utils;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 
 public class FileWorker {
 	
@@ -23,6 +27,18 @@ public class FileWorker {
 		return file;
 	}
 	
-	
+	public void preencheConfigs(String nome, String cargaHoraria) {
+        try {
+        	BufferedWriter writer = new BufferedWriter(new FileWriter("registros", true));
+        	writer.write("Nome: " + nome);
+            writer.newLine();
+			writer.write("Carga horária:" + cargaHoraria);
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+	}	
 	
 }

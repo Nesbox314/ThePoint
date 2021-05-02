@@ -84,8 +84,21 @@ public class Main {
 				if(existe) {
 					file = new File("registros");
 				} else {
-					file = fileWorker.criaArquivo();
-					//colocar mensagens avisando da não existência de arquivo
+					System.out.println("Não foi possível encontrar o seu arquivo de registros!");
+					System.out.println("Você deseja criar? 1 para SIM | 2 para NÃO");
+					int opcaoArq = leitor.nextInt();
+					
+					if(opcaoArq == 1) {
+						file = fileWorker.criaArquivo();
+						System.out.println("Okay, arquivo criado, vamos as configurações...");
+						System.out.println("Qual é seu nome?");
+						String nome = leitor.next();
+						System.out.println("Quanto é sua carga horária?");
+						String cargaHoraria = leitor.next();
+						fileWorker.preencheConfigs(nome, cargaHoraria);
+						System.out.println("Arquivo criado e configurado! Opção liberada.");
+					}
+					
 				}
 				
 		    }
