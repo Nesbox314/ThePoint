@@ -1,6 +1,6 @@
 # ThePoint
 
-Sistema criado para registro de ponto, cálculos de horário e funções úteis para controle de horas extras, e lembretes de abertura de processos de solicitação de ponto.
+Sistema feito em Java para rodar no prompt de comando, com o objetivo de ser simples, para controle e registro de pontos, horas extras, e lembretes de horas extras.
 
 -Cálculo do horário de saída
 
