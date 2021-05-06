@@ -65,12 +65,16 @@ public class WorkCalculator {
 	public void subtraiHoraExtra(Hour horaInicial, Hour horaFinal, Hour horaSaida) {
 		Boolean fezHoraExtra = identificadorDeHoraExtra(horaInicial, horaFinal);
 		Hour quantidade = new Hour();
+		Hour inicioHoraExtra = new Hour();
 		
 		if(fezHoraExtra == true) {
 			quantidade = subtraiHora(horaInicial, horaFinal);
+			inicioHoraExtra = subtraiHora(quantidade, horaSaida);
+			
 			System.out.println("------------------------------------------------------------------------------------");
 			System.out.println("Você fez horas positivas!");
-			System.out.println("Início: " + dateConverter.dateFormatter(dateConverter.converteFormatoData(horaSaida)));
+			System.out.println("Início: " + dateConverter.dateFormatter(dateConverter.converteFormatoData(inicioHoraExtra)));
+			System.out.println("Fim: " + dateConverter.dateFormatter(dateConverter.converteFormatoData(horaSaida)));
 			System.out.println("Total: " + quantidade.getHoras() + "h" + quantidade.getMinutos() + "m");
 			System.out.println("------------------------------------------------------------------------------------");
 		}
