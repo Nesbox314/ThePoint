@@ -85,31 +85,18 @@ public class Main {
 		    }
 			
 			if(opcaoMenu == 5) {
-				File file = null;
 				Boolean existe = fileWorker.verificaExistenciaArquivo();
 				
 				if(existe) {
+					File file = null;
 					file = new File("registros");
+					
+					
 				} else {
-					System.out.println("Não foi possível encontrar o seu arquivo de registros!");
-					System.out.println("Você deseja criar? 1 para SIM | 2 para NÃO");
-					int opcaoArq = leitor.nextInt();
-					
-					if(opcaoArq == 1) {
-						file = fileWorker.criaArquivo();
-						System.out.println("Okay, arquivo criado, vamos as configurações...");
-						System.out.println("Qual é seu nome?");
-						String nome = leitor.next();
-						System.out.println("Quanto é sua carga horária?");
-						String cargaHoraria = leitor.next();
-						fileWorker.preencheConfigs(nome, cargaHoraria);
-						System.out.println("Arquivo criado e configurado! Opção liberada.");
-					}
-					
+					fileWorker.criaArquivoComConfigs();
 				}
 				
 		    }
-			
 			
 			if(opcaoMenu == 0) {
 				exit = false;
