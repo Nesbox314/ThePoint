@@ -9,13 +9,13 @@ import java.util.Scanner;
 public class FileWorker {
 	
 	public Boolean verificaExistenciaArquivo() {
-		File file = new File("registros");
+		File file = new File("registros.txt");
 		
 		return file.exists();
 	}
 	
 	public File criaArquivo() {
-		File file = new File("registros");
+		File file = new File("registros.txt");
 		
 		try {
 			file.createNewFile();
@@ -41,18 +41,19 @@ public class FileWorker {
 			String cargaHoraria = leitor.next();
 			preencheConfigs(nome, cargaHoraria);
 			System.out.println("Arquivo criado e configurado! Opção liberada.");
+			leitor.close();
 		}
 		
 		if(opcaoArq != 2) {
 			System.out.println("Okay! Retornando ao menu");
+			leitor.close();
 		}
 		
-		leitor.close();
 	}
 	
 	public void preencheConfigs(String nome, String cargaHoraria) {
         try {
-        	BufferedWriter writer = new BufferedWriter(new FileWriter("registros", true));
+        	BufferedWriter writer = new BufferedWriter(new FileWriter("registros.txt", true));
         	writer.write("Nome: " + nome);
             writer.newLine();
 			writer.write("Carga horária:" + cargaHoraria);

@@ -10,11 +10,13 @@ import utils.WorkCalculator;
 
 public class Main {
 
+	static Scanner leitor = new Scanner(System.in);
+	
 	public static void main(String[] args) {
-		Scanner leitor = new Scanner(System.in);
 		WorkCalculator workCalculator = new WorkCalculator();
 		DateConverter dateConverter = new DateConverter();
 		FileWorker fileWorker = new FileWorker();
+		Configurations configs = new Configurations();
 		Boolean exit = true;
 		
 		System.out.println("Bem vindo ao sistema de registro de ponto!");
@@ -88,10 +90,7 @@ public class Main {
 				Boolean existe = fileWorker.verificaExistenciaArquivo();
 				
 				if(existe) {
-					File file = null;
-					file = new File("registros");
-					
-					
+					configs.menu();
 				} else {
 					fileWorker.criaArquivoComConfigs();
 				}
