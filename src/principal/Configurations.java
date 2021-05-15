@@ -3,10 +3,12 @@ package principal;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.Scanner;
+
+import utils.Reader;
 
 public class Configurations {
-	Scanner leitor = new Scanner(System.in);
+	
+	Reader reader = new Reader();
 
 	public void menu() {
 		System.out.println("-----------------------CONFIGURAÇÕES-----------------------");
@@ -14,7 +16,7 @@ public class Configurations {
 		System.out.println("1 - Ler as configurações");
 		System.out.println("2 - Alterar as configurações");
 		System.out.println("3 - Voltar ao menu");
-		int opcao = leitor.nextInt();
+		int opcao = reader.getLeitor().nextInt();
 		
 		try {
 			
@@ -24,9 +26,12 @@ public class Configurations {
 			    BufferedReader br;
 			    String st;
 			    br = new BufferedReader(new FileReader(file));
-			    while ((st = br.readLine()) != null) {
-			      System.out.println(st);
-			    }
+			    st = br.readLine();
+			    System.out.println(st);
+			    st = br.readLine();
+			    System.out.println(st);
+			    st = br.readLine();
+			    System.out.println(st);
 			    br.close();
 			}
 			
@@ -39,6 +44,7 @@ public class Configurations {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//leitor.close();
 	}
 	
 	public void lerConfigs(){

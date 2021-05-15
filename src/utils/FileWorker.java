@@ -4,9 +4,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class FileWorker {
+	
+	Reader reader = new Reader();
 	
 	public Boolean verificaExistenciaArquivo() {
 		File file = new File("registros.txt");
@@ -27,26 +28,23 @@ public class FileWorker {
 	}
 	
 	public void criaArquivoComConfigs() {
-		Scanner leitor = new Scanner(System.in);
 		System.out.println("Não foi possível encontrar o seu arquivo de registros/configurações!");
 		System.out.println("Você deseja criar? 1 para SIM | 2 para NÃO");
-		int opcaoArq = leitor.nextInt();
+		int opcaoArq = reader.getLeitor().nextInt();
 		
 		if(opcaoArq == 1) {
 			criaArquivo();
 			System.out.println("Okay, arquivo criado, vamos as configurações...");
 			System.out.println("Qual é seu nome?");
-			String nome = leitor.next();
+			String nome = reader.getLeitor().next();
 			System.out.println("Quanto é sua carga horária?");
-			String cargaHoraria = leitor.next();
+			String cargaHoraria = reader.getLeitor().next();
 			preencheConfigs(nome, cargaHoraria);
 			System.out.println("Arquivo criado e configurado! Opção liberada.");
-			leitor.close();
 		}
 		
-		if(opcaoArq != 2) {
+		if(opcaoArq == 2) {
 			System.out.println("Okay! Retornando ao menu");
-			leitor.close();
 		}
 		
 	}
@@ -54,9 +52,11 @@ public class FileWorker {
 	public void preencheConfigs(String nome, String cargaHoraria) {
         try {
         	BufferedWriter writer = new BufferedWriter(new FileWriter("registros.txt", true));
-        	writer.write("Nome: " + nome);
-            writer.newLine();
-			writer.write("Carga horária:" + cargaHoraria);
+        	writer.write("ThePoint");
+        	writer.newLine();
+        	writer.write("Nome: |" + nome + "|");
+        	writer.newLine();
+        	writer.write("Carga horária: |" + cargaHoraria + "|");
 			writer.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

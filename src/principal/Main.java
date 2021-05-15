@@ -1,18 +1,15 @@
 package principal;
 
-import java.io.File;
-import java.util.Scanner;
-
 import markers.Hour;
 import utils.DateConverter;
 import utils.FileWorker;
+import utils.Reader;
 import utils.WorkCalculator;
 
 public class Main {
-
-	static Scanner leitor = new Scanner(System.in);
 	
 	public static void main(String[] args) {
+		Reader reader = new Reader();
 		WorkCalculator workCalculator = new WorkCalculator();
 		DateConverter dateConverter = new DateConverter();
 		FileWorker fileWorker = new FileWorker();
@@ -29,7 +26,6 @@ public class Main {
 		System.out.println("	    |_|  |_| |_|\\___| |_|   \\___/|_|_| |_|\\__|  ");
 		                                               
 		                                              
-		
 		while(exit) {
 			System.out.println("----------------------------------------------------------------------");
 			System.out.println("O que deseja? Digite a opção escolhida");
@@ -39,19 +35,19 @@ public class Main {
 			System.out.println("4- Adicionar / editar batida de ponto anterior (EM DESENVOLVIMENTO)");
 			System.out.println("5- Configurações (EM DESENVOLVIMENTO)");
 			System.out.println("0- Sair");
-			int opcaoMenu = leitor.nextInt();
+			int opcaoMenu = reader.getLeitor().nextInt();
 			
 			if(opcaoMenu == 1) {
 				System.out.println("Digite o horário de entrada:");
-				String horaEntrada = leitor.next();
+				String horaEntrada = reader.getLeitor().next();
 				Hour horaEntradaObject = dateConverter.converteData(horaEntrada);
 				
 				System.out.println("Digite o horário de ida ao almoço:");
-				String horaSaidaAlmoco = leitor.next();
+				String horaSaidaAlmoco = reader.getLeitor().next();
 				Hour horaSaidaAlmocoObject = dateConverter.converteData(horaSaidaAlmoco);
 				
 				System.out.println("Digite o horário do retorno do almoço:");
-				String horaVoltaAlmoco = leitor.next();
+				String horaVoltaAlmoco = reader.getLeitor().next();
 				Hour horaVoltaAlmocoObject = dateConverter.converteData(horaVoltaAlmoco);
 				
 				Hour horaDeSaida = workCalculator.calculaHoraSaida(horaEntradaObject, horaSaidaAlmocoObject, horaVoltaAlmocoObject);
@@ -64,19 +60,19 @@ public class Main {
 			
 			if(opcaoMenu == 2) {
 				System.out.println("Digite o horário de entrada:");
-				String horaEntrada = leitor.next();
+				String horaEntrada = reader.getLeitor().next();
 				Hour horaEntradaObject = dateConverter.converteData(horaEntrada);
 				
 				System.out.println("Digite o horário de ida ao almoço:");
-				String horaSaidaAlmoco = leitor.next();
+				String horaSaidaAlmoco = reader.getLeitor().next();
 				Hour horaSaidaAlmocoObject = dateConverter.converteData(horaSaidaAlmoco);
 				
 				System.out.println("Digite o horário do retorno do almoço:");
-				String horaVoltaAlmoco = leitor.next();
+				String horaVoltaAlmoco = reader.getLeitor().next();
 				Hour horaVoltaAlmocoObject = dateConverter.converteData(horaVoltaAlmoco);
 				
 				System.out.println("Digite o horário de saída:");
-				String horaSaida = leitor.next();
+				String horaSaida = reader.getLeitor().next();
 				Hour horaSaidaObject = dateConverter.converteData(horaSaida);
 				
 				workCalculator.calculaHoraExtra(horaEntradaObject, horaSaidaAlmocoObject, horaVoltaAlmocoObject, horaSaidaObject);
@@ -101,8 +97,6 @@ public class Main {
 				exit = false;
 			}
 		}
-		
-		leitor.close();
 	}
 
 }
