@@ -16,24 +16,28 @@ public class Main {
 		Configurations configs = new Configurations();
 		Boolean exit = true;
 		
-		System.out.println("Bem vindo ao sistema de registro de ponto!");
-		
 		System.out.println("	  _______ _            _____      _       _     ");
 		System.out.println("	 |__   __| |          |  __ \\    (_)     | |    ");
 		System.out.println("	    | |  | |__   ___  | |__) |__  _ _ __ | |_   ");
 		System.out.println("	    | |  | '_ \\ / _ \\ |  ___/ _ \\| | '_ \\| __|  ");
 		System.out.println("	    | |  | | | |  __/ | |  | (_) | | | | | |_   ");
 		System.out.println("	    |_|  |_| |_|\\___| |_|   \\___/|_|_| |_|\\__|  ");
-		                                               
+		System.out.println("");                                             
+		if(fileWorker.verificaExistenciaArquivo()) {
+			String[] dados = configs.getDadosConfiguracoes();
+			System.out.println("Bem vindo ao sistema de registro de ponto, " + dados[0] + ".");
+		} else {
+			System.out.println("Bem vindo ao sistema de registro de ponto!");
+		};
 		                                              
 		while(exit) {
-			System.out.println("----------------------------------------------------------------------");
+			System.out.println("-------------------------------------------------------------------------------");
 			System.out.println("O que deseja? Digite a opção escolhida");
 			System.out.println("1- Calcular horário de saída");
 			System.out.println("2- Calcular total de horas extras");
 			System.out.println("3- Registrar batida de ponto (hoje) (EM DESENVOLVIMENTO)");
 			System.out.println("4- Adicionar / editar batida de ponto anterior (EM DESENVOLVIMENTO)");
-			System.out.println("5- Configurações (EM DESENVOLVIMENTO)");
+			System.out.println("5- Configurações");
 			System.out.println("0- Sair");
 			int opcaoMenu = reader.getLeitor().nextInt();
 			

@@ -80,7 +80,7 @@ public class WorkCalculator {
 			quantidade = subtraiHora(horaInicial, horaFinal);
 			inicioHoraExtra = subtraiHora(quantidade, horaSaida);
 			
-			System.out.println("------------------------------------------------------------------------------------");
+			System.out.println("-------------------------------------------------------------------------------");
 			System.out.println("Você fez horas positivas!");
 			System.out.println("Início: " + dateConverter.dateFormatter(dateConverter.converteFormatoData(inicioHoraExtra)));
 			System.out.println("Fim: " + dateConverter.dateFormatter(dateConverter.converteFormatoData(horaSaida)));
@@ -90,11 +90,11 @@ public class WorkCalculator {
 		
 		if(fezHoraExtra == false) {
 			quantidade = subtraiHora(horaFinal, horaInicial);
-			System.out.println("------------------------------------------------------------------------------------");
+			System.out.println("-------------------------------------------------------------------------------");
 			System.out.println("Você fez horas negativas!");
 			System.out.println("Início: " + dateConverter.dateFormatter(dateConverter.converteFormatoData(horaSaida)));
 			System.out.println("Total: -" + quantidade.getHoras() + "h" + quantidade.getMinutos() + "m");
-			System.out.println("------------------------------------------------------------------------------------");
+			System.out.println("-------------------------------------------------------------------------------");
 		}
 	}
 	
