@@ -10,8 +10,14 @@ public class FileWorker {
 	
 	Reader reader = new Reader();
 	
-	public Boolean verificaExistenciaArquivo() {
+	public Boolean verificaExistenciaArquivoConfigs() {
 		File file = new File("configuracoes.txt");
+		
+		return file.exists();
+	}
+	
+	public Boolean verificaExistenciaArquivoRegistro() {
+		File file = new File("registros.txt");
 		
 		return file.exists();
 	}
@@ -73,6 +79,19 @@ public class FileWorker {
 			clean.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void publicaRegistroPonto(String horaEntrada, String horaSaidaAlmoco, String horaVoltaAlmoco, String horaSaida) {
+		try {
+			if(verificaExistenciaArquivoRegistro()) {
+				BufferedWriter writer = new BufferedWriter(new FileWriter("registros.txt", true));
+				writer.newLine();
+				writer.write(horaEntrada + horaSaidaAlmoco + horaVoltaAlmoco + horaSaida);
+				writer.close();
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

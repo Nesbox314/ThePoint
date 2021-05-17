@@ -12,7 +12,7 @@ public class WorkCalculator {
 	Configurations configuracoes = new Configurations();
 	
 	public WorkCalculator(){
-		if(fileWorker.verificaExistenciaArquivo()) {
+		if(fileWorker.verificaExistenciaArquivoConfigs()) {
 			String[] dados = configuracoes.getDadosConfiguracoes();
 			setCargaTrabalho(dateConverter.converteData(dados[1]));
 		} else {

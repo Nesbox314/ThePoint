@@ -23,7 +23,7 @@ public class Main {
 		System.out.println("	    | |  | | | |  __/ | |  | (_) | | | | | |_   ");
 		System.out.println("	    |_|  |_| |_|\\___| |_|   \\___/|_|_| |_|\\__|  ");
 		System.out.println("");                                             
-		if(fileWorker.verificaExistenciaArquivo()) {
+		if(fileWorker.verificaExistenciaArquivoConfigs()) {
 			String[] dados = configs.getDadosConfiguracoes();
 			System.out.println("Bem vindo ao sistema de registro de ponto, " + dados[0] + ".");
 		} else {
@@ -35,7 +35,7 @@ public class Main {
 			System.out.println("O que deseja? Digite a opção escolhida");
 			System.out.println("1- Calcular horário de saída");
 			System.out.println("2- Calcular total de horas extras");
-			System.out.println("3- Registrar batida de ponto (hoje) (EM DESENVOLVIMENTO)");
+			System.out.println("3- Registrar ponto (EM DESENVOLVIMENTO)");
 			System.out.println("4- Adicionar / editar batida de ponto anterior (EM DESENVOLVIMENTO)");
 			System.out.println("5- Configurações");
 			System.out.println("0- Sair");
@@ -83,11 +83,23 @@ public class Main {
 			}
 			
 			if(opcaoMenu == 3) {
-				System.out.println("Em desenvolvimento!");
+				System.out.println("Digite o horário de entrada:");
+				String horaEntrada = reader.getLeitor().next();
+				
+				System.out.println("Digite o horário de ida ao almoço:");
+				String horaSaidaAlmoco = reader.getLeitor().next();
+				
+				System.out.println("Digite o horário do retorno do almoço:");
+				String horaVoltaAlmoco = reader.getLeitor().next();
+				
+				System.out.println("Digite o horário de saída:");
+				String horaSaida = reader.getLeitor().next();
+				
+				fileWorker.publicaRegistroPonto(horaEntrada, horaSaidaAlmoco, horaVoltaAlmoco, horaSaida);
 		    }
 			
 			if(opcaoMenu == 5) {
-				Boolean existe = fileWorker.verificaExistenciaArquivo();
+				Boolean existe = fileWorker.verificaExistenciaArquivoConfigs();
 				
 				if(existe) {
 					configs.menu();
