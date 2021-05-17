@@ -17,28 +17,36 @@ public class Configurations {
 		System.out.println("2 - Alterar as configurações");
 		System.out.println("3 - Voltar ao menu");
 		int opcao = reader.getLeitor().nextInt();
-		
+
 		try {
+			File file = new File("registros.txt");
+			BufferedReader br;
+			br = new BufferedReader(new FileReader(file));
 			
 			if(opcao == 1) {
-				File file = new File("registros.txt");
-				  
-			    BufferedReader br;
-			    String st;
-			    br = new BufferedReader(new FileReader(file));
-			    st = br.readLine();
-			    System.out.println(st);
-			    st = br.readLine();
-			    System.out.println(st);
-			    st = br.readLine();
-			    System.out.println(st);
-			    br.close();
+			    String stringConfigs;
+			    stringConfigs = br.readLine();
+			    System.out.println(stringConfigs);
+			    stringConfigs = br.readLine();
+			    System.out.println(stringConfigs);
+			    stringConfigs = br.readLine();
+			    System.out.println(stringConfigs);
 			}
 			
 			if(opcao == 2) {
-				//alterar as configurações
+			    String stringConfigs;
+				stringConfigs = br.readLine();
+			    System.out.println(stringConfigs);
+			    stringConfigs = br.readLine();
+			    String nome = stringConfigs;
+			    stringConfigs = br.readLine();
+			    String cargaHoraria = stringConfigs;
+	
+			    System.out.println(nome);
+			    System.out.println(cargaHoraria);
 			}
 	
+			br.close();
 		}
 		catch (Exception e) {
 			// TODO Auto-generated catch block
