@@ -1,14 +1,23 @@
 package utils;
 
 import markers.Hour;
+import principal.Configurations;
 
 public class WorkCalculator {
 	
-	DateConverter dateConverter = new DateConverter();
 	private Hour cargaTrabalho;
 	
+	DateConverter dateConverter = new DateConverter();
+	FileWorker fileWorker = new FileWorker();
+	Configurations configuracoes = new Configurations();
+	
 	public WorkCalculator(){
-		setCargaTrabalho(new Hour(8, 45));
+		if(fileWorker.verificaExistenciaArquivo()) {
+			String[] dados = configuracoes.getDadosConfiguracoes();
+			setCargaTrabalho(dateConverter.converteData(dados[1]));
+		} else {
+			setCargaTrabalho(new Hour(8, 45));
+		};
 	}
 	
 	public Hour calculaHoraSaida(Hour horaEntrada, Hour horaSaidaAlmoco, Hour horaVoltaAlmoco) {

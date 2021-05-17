@@ -54,7 +54,8 @@ public class Configurations {
 		//leitor.close();
 	}
 	
-	public void getDadosConfiguracoes() {
+	public String[] getDadosConfiguracoes() {
+		String[] dados = {"null", "null"};
 		try {
 			File file = new File("configuracoes.txt");
 			BufferedReader br;
@@ -65,14 +66,16 @@ public class Configurations {
 		    String nome = stringConfigs;
 		    stringConfigs = br.readLine();
 		    String cargaHoraria = stringConfigs;
-		    nome = nome.substring(nome.indexOf("|") + 1, nome.lastIndexOf("|"));
-		    cargaHoraria = cargaHoraria.substring(cargaHoraria.indexOf("|") + 1, cargaHoraria.lastIndexOf("|"));
+		    dados[0] = nome.substring(nome.indexOf("|") + 1, nome.lastIndexOf("|"));
+		    dados[1] = cargaHoraria.substring(cargaHoraria.indexOf("|") + 1, cargaHoraria.lastIndexOf("|"));
 		    
 		    br.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return dados;
 	}
 	
 }
