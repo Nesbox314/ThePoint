@@ -4,19 +4,20 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 
 public class FileWorker {
 	
 	Reader reader = new Reader();
 	
 	public Boolean verificaExistenciaArquivo() {
-		File file = new File("registros.txt");
+		File file = new File("configuracoes.txt");
 		
 		return file.exists();
 	}
 	
 	public File criaArquivo() {
-		File file = new File("registros.txt");
+		File file = new File("configuracoes.txt");
 		
 		try {
 			file.createNewFile();
@@ -28,7 +29,7 @@ public class FileWorker {
 	}
 	
 	public void criaArquivoComConfigs() {
-		System.out.println("Não foi possível encontrar o seu arquivo de registros/configurações!");
+		System.out.println("Não foi possível encontrar o seu arquivo de configurações!");
 		System.out.println("Você deseja criar? 1 para SIM | 2 para NÃO");
 		int opcaoArq = reader.getLeitor().nextInt();
 		
@@ -51,7 +52,7 @@ public class FileWorker {
 	
 	public void preencheConfigs(String nome, String cargaHoraria) {
         try {
-        	BufferedWriter writer = new BufferedWriter(new FileWriter("registros.txt", true));
+        	BufferedWriter writer = new BufferedWriter(new FileWriter("configuracoes.txt", true));
         	writer.write("ThePoint");
         	writer.newLine();
         	writer.write("Nome: |" + nome + "|");
@@ -64,5 +65,16 @@ public class FileWorker {
 		}
 	    
 	}	
+	
+	public void limpaArquivoConfiguracoes() {
+		Writer clean;
+		try {
+			clean = new BufferedWriter(new FileWriter(new File("configuracoes.txt")));
+			clean.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }
