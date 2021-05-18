@@ -1,6 +1,6 @@
 # ThePoint
 
-Sistema feito em Java para rodar no prompt de comando, com o objetivo de ser simples, para controle e registro de pontos, horas extras, e lembretes de horas extras.
+Sistema feito em Java para rodar no prompt de comando, com o objetivo de ser simples, para realizar cálculos simples relacionados aos horários de carga horária, podendo configurar de forma que te atenda melhor! 
 
 -Cálculo do horário de saída
 
@@ -8,4 +8,4 @@ Sistema feito em Java para rodar no prompt de comando, com o objetivo de ser sim
 
 -Configurações de uso (setar nome do usuário e carga horária, para cálculos diferentes de 08:45)
 
-Download link: https://github.com/Nesbox314/ThePoint/releases/download/v0.3-beta.1/ThePoint.7z
+Download link: https://github.com/Nesbox314/ThePoint/releases/download/v1.0/ThePoint.7z
