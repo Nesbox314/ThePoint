@@ -83,14 +83,17 @@ public class FileWorker {
 		}
 	}
 	
-	public void publicaRegistroPonto(String horaEntrada, String horaSaidaAlmoco, String horaVoltaAlmoco, String horaSaida) {
+	public void publicaRegistroPonto(String dia, String horaEntrada, String horaSaidaAlmoco, String horaVoltaAlmoco, String horaSaida) {
 		try {
-			if(verificaExistenciaArquivoRegistro()) {
-				BufferedWriter writer = new BufferedWriter(new FileWriter("registros.txt", true));
-				writer.newLine();
-				writer.write(horaEntrada + horaSaidaAlmoco + horaVoltaAlmoco + horaSaida);
-				writer.close();
+			if(!verificaExistenciaArquivoRegistro()) {
+				File file = new File("registros.txt");
+				file.createNewFile();
 			}
+			
+			BufferedWriter writer = new BufferedWriter(new FileWriter("registros.txt", true));
+			writer.newLine();
+			writer.write("[" + dia + "] " + horaEntrada + " | " + horaSaidaAlmoco + " | " + horaVoltaAlmoco + " | " + horaSaida);
+			writer.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
