@@ -58,7 +58,7 @@ public class Main
 			System.out.println("1- Calcular hor�rio de sa�da");
 			System.out.println("2- Calcular total de horas extras");
 			System.out.println("3- Configura��es");
-			System.out.println("4- Checar horário de saída");
+			System.out.println("4- Checar horário de saída automaticamente");
 			System.out.println("0- Sair");
 			int opcaoMenu = reader.getLeitor().nextInt();
 
