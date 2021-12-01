@@ -6,97 +6,123 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
-public class FileWorker {
-	
+public class FileWorker
+{
+
 	Reader reader = new Reader();
-	
-	public Boolean verificaExistenciaArquivoConfigs() {
+
+	public Boolean verificaExistenciaArquivoConfigs()
+	{
 		File file = new File("configuracoes.txt");
-		
+
 		return file.exists();
 	}
-	
-	public Boolean verificaExistenciaArquivoRegistro() {
+
+	public Boolean verificaExistenciaArquivoRegistro()
+	{
 		File file = new File("registros.txt");
-		
+
 		return file.exists();
 	}
-	
-	public File criaArquivo() {
+
+	public File criaArquivo()
+	{
 		File file = new File("configuracoes.txt");
-		
-		try {
+
+		try
+		{
 			file.createNewFile();
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			e.printStackTrace();
 		}
-		
+
 		return file;
 	}
-	
-	public void criaArquivoComConfigs() {
-		System.out.println("Não foi possível encontrar o seu arquivo de configurações!");
-		System.out.println("Você deseja criar? 1 para SIM | 2 para NÃO");
+
+	public void criaArquivoComConfigs()
+	{
+		System.out.println("Nï¿½o foi possï¿½vel encontrar o seu arquivo de configuraï¿½ï¿½es!");
+		System.out.println("Vocï¿½ deseja criar? 1 para SIM | 2 para Nï¿½O");
 		int opcaoArq = reader.getLeitor().nextInt();
-		
-		if(opcaoArq == 1) {
+
+		if (opcaoArq == 1)
+		{
 			criaArquivo();
-			System.out.println("Okay, arquivo criado, vamos as configurações...");
-			System.out.println("Qual é seu nome?");
+			System.out.println("Okay, arquivo criado, vamos as configuraï¿½ï¿½es...");
+			System.out.println("Qual ï¿½ seu nome?");
 			String nome = reader.getLeitor().next();
-			System.out.println("Quanto é sua carga horária?");
+			System.out.println("Quanto ï¿½ sua carga horï¿½ria?");
 			String cargaHoraria = reader.getLeitor().next();
 			preencheConfigs(nome, cargaHoraria);
-			System.out.println("Arquivo criado e configurado! Opção liberada.");
+			System.out.println("Arquivo criado e configurado! Opï¿½ï¿½o liberada.");
 		}
-		
-		if(opcaoArq == 2) {
+
+		if (opcaoArq == 2)
+		{
 			System.out.println("Okay! Retornando ao menu");
 		}
-		
+
 	}
-	
-	public void preencheConfigs(String nome, String cargaHoraria) {
-        try {
-        	BufferedWriter writer = new BufferedWriter(new FileWriter("configuracoes.txt", true));
-        	writer.write("ThePoint");
-        	writer.newLine();
-        	writer.write("Nome: |" + nome + "|");
-        	writer.newLine();
-        	writer.write("Carga horária: |" + cargaHoraria + "|");
+
+	public void preencheConfigs(String nome, String cargaHoraria)
+	{
+		try
+		{
+			BufferedWriter writer = new BufferedWriter(new FileWriter("configuracoes.txt", true));
+			writer.write("ThePoint");
+			writer.newLine();
+			writer.write("Nome: |" + nome + "|");
+			writer.newLine();
+			writer.write("Carga horï¿½ria: |" + cargaHoraria + "|");
 			writer.close();
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    
-	}	
-	
-	public void limpaArquivoConfiguracoes() {
+
+	}
+
+	public void limpaArquivoConfiguracoes()
+	{
 		Writer clean;
-		try {
+		try
+		{
 			clean = new BufferedWriter(new FileWriter(new File("configuracoes.txt")));
 			clean.close();
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	public void publicaRegistroPonto(String dia, String horaEntrada, String horaSaidaAlmoco, String horaVoltaAlmoco, String horaSaida) {
-		try {
-			if(!verificaExistenciaArquivoRegistro()) {
+
+	public void publicaRegistroPonto(String dia, String horaEntrada, String horaSaidaAlmoco,
+		String horaVoltaAlmoco, String horaSaida)
+	{
+		try
+		{
+			if (!verificaExistenciaArquivoRegistro())
+			{
 				File file = new File("registros.txt");
 				file.createNewFile();
 			}
-			
+
 			BufferedWriter writer = new BufferedWriter(new FileWriter("registros.txt", true));
 			writer.newLine();
-			writer.write("[" + dia + "] " + horaEntrada + " | " + horaSaidaAlmoco + " | " + horaVoltaAlmoco + " | " + horaSaida);
+			writer.write(
+				"[" + dia + "] " + horaEntrada + " | " + horaSaidaAlmoco + " | " + horaVoltaAlmoco
+					+ " | " + horaSaida);
 			writer.close();
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			e.printStackTrace();
 		}
 	}
-	
+
 }
